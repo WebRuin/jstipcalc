@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+  <div class="tipform">
+    <h1>Basic JS Tip Calculator</h1>
+    <input class="total" type="text" onchange="setTotal()">
+    <label for="service">Service Quality</label>
+    <select class="service" name="service" form="tipform" onchange="setTipAmount()">
+      <option value="">Select...</option>
+      <option value="10">Not Great 10% Tip</option>
+      <option value="15">OK 15% Tip</option>
+      <option value="20">Great 20% Tip</option>
+    </select>
+    <button onclick="handleTip()">Get Tip</button>
+    <button onclick="handleReset()">Reset</button>
+  </div>
+  
+  <div class="totals">
+    <h2>Tip Amount</h2>
+    <div class="showTip"></div>
+    
+    <h2>Total Amount</h2>
+    <div class="showTotal"></div>
+  </div>
+
+  <script>
+    let currentTotal = 0.00;
+    let currentTip = 0.00;
+    let newTotal = 0.00;
+
+    const showTip = document.querySelector('.showTip');
+    const showTotal = document.querySelector('.showTotal');
+
+    // Set initial UI
+    handleReset()
+
+    function handleTip() {
+      showTip.innerHTML = `$ ${currentTip}`;
+      showTotal.innerHTML = `$ ${newTotal}`;
+    }
+
+    // Handle Reset and Init
+    function handleReset() {
+      currentTotal = 0.00;
+      currentTip = 0.00;
+      newTotal = 0.00;
+      showTip.innerHTML = `$ ${currentTip}`;
+      showTotal.innerHTML = `$ ${newTotal}`;
+    }
+
+    function setTotal(e) {
+      const total = document.querySelector('.total');
+      currentTotal = parseInt(total.value); 
+      console.log(currentTotal);
+    }
+
+    function setTipAmount(e) {
+      const service = document.querySelector('.service');
+      const value = service.options[service.selectedIndex].value;
+      console.log(value);
+      if (value == 10) {
+        currentTip = currentTotal * 0.10;
+        newTotal = currentTotal + currentTip;
+        console.log(`${newTotal}, ${currentTip}`);
+      } else if ( value == 15) {
+        currentTip = currentTotal * 0.15;
+        newTotal = currentTotal + currentTip;
+        console.log(`${newTotal}, ${currentTip}`);
+      } else if ( value == 20 ) {
+        currentTip = currentTotal * 0.20;
+        newTotal = currentTotal + currentTip;
+        console.log(`${newTotal}, ${currentTip}`);
+      } else {
+        console.log('select tip amount')
+      }
+    }
+  </script>
+</body>
+</html>

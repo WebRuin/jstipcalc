@@ -1,0 +1,78 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #122;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Helvetica, Arial, Sans-Serif;
+  flex-direction: column;
+}
+
+.totals {
+  max-width: 30%;
+  min-width: 400px;
+  padding: 1rem 1rem 2rem 1rem;
+  background: rgba(200, 200, 200, 0.5);
+  border-radius: 10px;
+}
+.totals h2,
+.totals .showTip,
+.totals .showTotal {
+  color: #fff;
+  background: rgba(50, 50, 50, 0.5);
+  padding: 0.5rem 1rem;
+  margin-bottom: 10px;
+}
+
+.tipform {
+  max-width: 30%;
+  min-width: 400px;
+  padding: 0 1rem 2rem 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+.tipform button {
+  border: 0;
+  outline: none;
+  background: red;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+.tipform h1 {
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+.tipform label,
+.tipform input,
+.tipform select {
+  width: 100%;
+  margin: 15px 0;
+}
+.tipform label {
+  color: #fff;
+  text-transform: uppercase;
+}
+.tipform input,
+.tipform select {
+  background: rgba(0, 0, 0, 0.5);
+  border: 0;
+  padding: 0.5rem;
+  font-size: 1.7rem;
+  color: #eee;
+}
+.tipform select {
+  font-size: 1rem;
+}
